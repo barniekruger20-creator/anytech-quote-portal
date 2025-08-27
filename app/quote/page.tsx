@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -22,19 +21,19 @@ export default function QuotePage() {
     industry: ''
   });
 
+  const handleClientInfoSubmit = (info: ClientInfo) => {
+    setClientInfo(info);
+    setCurrentStep(2); // Go to Application Selection
+  };
+
   const handleApplicationSelect = (applicationId: string) => {
     setSelectedApplication(applicationId);
-    setCurrentStep(2);
+    setCurrentStep(3); // Go to Application Form
   };
 
   const handleApplicationFormSubmit = (answers: Record<string, string>) => {
     setApplicationAnswers(answers);
-    setCurrentStep(3);
-  };
-
-  const handleClientInfoSubmit = (info: ClientInfo) => {
-    setClientInfo(info);
-    setCurrentStep(4);
+    setCurrentStep(4); // Go to Confirmation
   };
 
   const handleStartOver = () => {
